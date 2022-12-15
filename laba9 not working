@@ -5,24 +5,20 @@ import turtle as tr
 
 
 def Func(x):
-    y = 1
-    
-    if x<-10:
-        y= None
-    elif x >=-10 and x<=-8:
-        y = -4
-    elif x>=-8 and x<-3:
-        y = 3/5*x+9/5
-    elif x>-3 and x<3:
-        y = math.sqrt(9-(x**2))
-    elif x>3 and x<5:
-        y = x + 3
-    elif x>=5 and x<8:
+    y = 0
+    if x >= -10 and x <= -8:
+        y = -3
+    elif x >= -8 and x < -3:
+        y = 3 / 5 * x + 9 / 5
+    elif x > -3 and x < 3:
+        y = -math.sqrt(9 - (x**2))
+    elif x > 3 and x < 5:
+        y = (math.sqrt(2)/2)*x-2
+    elif x >= 5 and x < 8:
         y = 3
-    elif x>8:
-        y= None
+    else: 
+        y=None
     return y
-
 
 def Axis(txy, ax="X"):
     a = txy[0]
@@ -38,7 +34,6 @@ def Axis(txy, ax="X"):
     tr.goto(pb)
     tr.down()
     tr.goto(pe)
-
 
 def Mark(txy, ax="X"):
     a = txy[0]
@@ -93,8 +88,8 @@ def Arrow(txy, ax="X"):
 
 def main():
 
-    aX = [-9, 8]
-    aY = [-3, 3]
+    aX = [-11, 12]
+    aY = [-5, 5]
 
     Dx = 800
     Dy = Dx / ((aX[1] - aX[0]) / (aY[1] - aY[0]))
@@ -128,7 +123,6 @@ def main():
     x = aX[0]
     y = Func(x)
     if y is None:
-        tr.up()
         tr.goto(x, 0)
     else:
         tr.down()
@@ -137,7 +131,6 @@ def main():
         x = x + dx
         y = Func(x)
         if y is None:
-            tr.up()
             continue
         else:
             tr.down()
