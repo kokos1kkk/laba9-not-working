@@ -13,7 +13,7 @@ def create_connection(path):
     return connection
 
 
-connection = create_connection("D:\ytuh\db.sqlite")
+connection = create_connection("path to file")
 
 
 def execute_query(connection, query):
@@ -40,8 +40,7 @@ create_games_table = """
 CREATE TABLE IF NOT EXISTS games (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(100) NOT NULL UNIQUE,
-    year DATE NOT NULL,
-    image_url VARCHAR(255) NOT NULL
+    year DATE NOT NULL
 );
 """
 execute_query(connection, create_games_table)
@@ -92,10 +91,10 @@ execute_query(connection, create_games_genres_table)
 
 create_games = """
 INSERT INTO
-    games (title, year, image_url)
-vALUES
-    ('The Witcher 3: Wild Hunt', 2015, 'None' ),
-    ('Dark Souls 2: Scholar of the first Sin', '2015, 'None');
+    games (title, year)
+VALUES
+    ('The Witcher 3 Wild Hunt', 2015),
+    ('Dark Souls 2 Scholar of the first Sin', 2015);
 """
 execute_query(connection, create_games)
 
@@ -127,5 +126,8 @@ for game in games:
 
 select_company = "SELECT * FROM company"
 company = execute_read_query(connection, select_company)
-for companies in company:
-    print(company)
+print(company)
+
+select_genres = "SELECT * FROM genres"
+genres = execute_read_query(connection, select_genres)
+print(genres)
