@@ -13,7 +13,7 @@ def create_connection(path):
     return connection
 
 
-connection = create_connection("path to data base")
+connection = create_connection("D:\ytuh\db.sqlite")
 
 
 def execute_query(connection, query):
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS games (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(100) NOT NULL UNIQUE,
     year DATE NOT NULL,
-    image_url VARCHAR(255) NOT NULL,
+    image_url VARCHAR(255) NOT NULL
 );
 """
 execute_query(connection, create_games_table)
@@ -51,7 +51,7 @@ execute_query(connection, create_games_table)
 create_company_table = """
 CREATE TABLE IF NOT EXISTS company(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name_of_company VARCHAR(45) NOT NULL UNIQUE,
+    name_of_company VARCHAR(45) NOT NULL UNIQUE
 );
 """
 
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS games_genres(
     games_id INTEGER NOT NULL,
     genres_id INTEGER NOT NULL,
     FOREIGN KEY(games_id) REFERENCES games(id),
-    FOREIGN KEY(genres_id) REFERENCES genres(id),
+    FOREIGN KEY(genres_id) REFERENCES genres(id)
 );
 """
 execute_query(connection, create_games_genres_table)
@@ -95,7 +95,7 @@ INSERT INTO
     games (title, year, image_url)
 vALUES
     ('The Witcher 3: Wild Hunt', 2015, 'None' ),
-    ('Dark Souls 2: Scholar of the first Sin', '2015, 'None'):
+    ('Dark Souls 2: Scholar of the first Sin', '2015, 'None');
 """
 execute_query(connection, create_games)
 
