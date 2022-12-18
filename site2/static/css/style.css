@@ -1,0 +1,36 @@
+*
+
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: #b18ed3;
+}
+
+.content
+{
+
+text-align: center;
+}
+
+.content h1
+{
+    font-size: calc(2vw + 3vh);
+
+    color: #ffffff;
+
+    margin: 3vh;
+}
+
+.content p
+{
+
+}
+
+.content a
+{
+    
+}
